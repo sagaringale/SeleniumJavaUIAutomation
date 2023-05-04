@@ -1,0 +1,1 @@
+Feature: Featured Products Functionality for nopcommerce E-commerce Website
