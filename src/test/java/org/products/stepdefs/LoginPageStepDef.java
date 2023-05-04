@@ -2,6 +2,7 @@ package org.products.stepdefs;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -32,13 +33,15 @@ public class LoginPageStepDef{
 
     @Given("I am on the nopcommerce login page")
     public void i_am_on_the_nopcommerce_login_page() {
-        driver.get("https://demo.nopcommerce.com/login?returnUrl=%2F");
+        driver.get("https://demo.nopcommerce.com/");
         loginPage = new LoginPage(driver);
+
 
     }
 
     @Given("I have entered a valid username and password")
     public void i_have_entered_a_valid_username_and_password() {
+        loginPage.loginpage();
         loginPage.enterEmail("sss@gmail.com");
         loginPage.enterPassword("Sagar@demo");
     }
@@ -78,4 +81,6 @@ public class LoginPageStepDef{
         String ExpectedText = "Password recovery";
         Assert.assertEquals(ExpectedText, passrecovery.getText());
     }
+
+
 }

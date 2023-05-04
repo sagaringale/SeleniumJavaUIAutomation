@@ -15,6 +15,7 @@ public class LoginPage {
     private By loginButtonLocator = By.xpath("//div/button[@type='submit']");
     private By forgottenPasswordLinkLocator = By.xpath("//a[contains(text(),'Forgot password?')]");
     private By logoutLinkLocator = By.xpath("//a[contains(text(),'Log out')]");
+    private By loginclick = By.xpath("//a[contains(text(),'Log in')]");
 
 
     // Constructor
@@ -23,6 +24,11 @@ public class LoginPage {
     }
 
     // Methods
+
+    public void loginpage(){
+        WebElement loginpage = driver.findElement(loginclick);
+        loginpage.click();
+    }
     public void enterEmail(String email) {
         WebElement emailInput = driver.findElement(emailInputLocator);
         emailInput.sendKeys(email);
