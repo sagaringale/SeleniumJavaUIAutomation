@@ -20,7 +20,7 @@ public class FeaturedProductPage {
     private By productfirst = By.xpath("//a[contains(text(),'Build your own computer')]");
     private By productsecond = By.xpath("//a[contains(text(),'Apple MacBook Pro 13-inch')]");
     private By producthree = By.xpath("//a[contains(text(),'HTC One M8 Android L 5.0 Lollipop')]");
-    private By productfoure = By.xpath("//a[contains(text(),'$25 Virtual Gift Card')]");
+
 
 
 
