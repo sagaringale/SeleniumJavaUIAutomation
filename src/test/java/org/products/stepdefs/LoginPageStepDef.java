@@ -13,6 +13,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.products.pages.LoginPage;
 import org.testng.Assert;
 
+import java.util.concurrent.TimeUnit;
+
 public class LoginPageStepDef{
 
     private WebDriver driver;
@@ -34,7 +36,15 @@ public class LoginPageStepDef{
     @Given("I am on the nopcommerce login page")
     public void i_am_on_the_nopcommerce_login_page() {
         driver.get("https://demo.nopcommerce.com/");
+
+        //Maximise browser window
+        driver.manage().window().maximize();
+
+        //Adding wait
+        driver.manage().timeouts().implicitlyWait(10000, TimeUnit.MILLISECONDS);
+
         loginPage = new LoginPage(driver);
+
 
 
     }
