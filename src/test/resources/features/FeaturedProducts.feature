@@ -6,7 +6,8 @@ Feature: Featured Products Functionality for nopcommerce E-commerce Website
     Given I am on the nopcommerce login page
 
 
-  Scenario Outline: Verify the Featured Products section has 4 items.
+
+  Scenario Outline: Verify the Featured Products section has 4 items
     Given I am on a Featured product section details
     When I can see the first product "<productone>" item
     Then I can see the second product "<producttwo>" item
