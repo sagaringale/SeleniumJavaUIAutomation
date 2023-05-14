@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
+
 public class ShoppingPage {
 
     private WebDriver driver;
@@ -23,7 +24,7 @@ public class ShoppingPage {
     private By productsecond = By.xpath("//a[contains(text(),'Apple MacBook Pro 13-inch')]");
     private By producthree = By.xpath("//a[contains(text(),'HTC One M8 Android L 5.0 Lollipop')]");
 
-    private By compTab = By.xpath("//div/ul/li/a[text()='Computers '][1]");
+    private By compTab = By.xpath("//body/div[6]/div[2]/ul[1]/li[1]/a[1]");
     private By DeskTop = By.xpath("//div/h2/a[text()=' Desktops ']");
 
     private By selectproduct = By.xpath("//div/h2/a[text()='Lenovo IdeaCentre 600 All-in-One PC']");
@@ -50,6 +51,7 @@ public class ShoppingPage {
     private By emailAdd =By.xpath("//input[@id='BillingNewAddress_Email']");
 
     private By companyName =By.xpath("//input[@id='BillingNewAddress_Company']");
+
 
 
 
@@ -83,11 +85,10 @@ public class ShoppingPage {
         Assert.assertEquals(SelectProduct, selectProduct.getText());
 
     }
-    public void ProductIsSelected(){
+    public void ProductIsSelected(String productselect){
         WebElement selectProduct = driver.findElement(selectproduct);
         selectProduct.click();
         WebElement productIsselected = driver.findElement(SelectProduct);
-        String productselect = "Lenovo IdeaCentre 600 All-in-One PC";
         Assert.assertEquals(productselect, productIsselected.getText());
 
     }
@@ -154,6 +155,21 @@ public class ShoppingPage {
     public void EnterTheCompanyName(){
         WebElement CompanyName = driver.findElement(companyName);
         CompanyName.sendKeys("New");
+    }
+
+    public void enterEmail(String email) {
+        WebElement emailInput = driver.findElement(emailInputLocator);
+        emailInput.sendKeys(email);
+    }
+
+    public void enterPassword(String password) {
+        WebElement passwordInput = driver.findElement(passwordInputLocator);
+        passwordInput.sendKeys(password);
+    }
+
+    public void clickLoginButton() {
+        WebElement loginButton = driver.findElement(loginButtonLocator);
+        loginButton.click();
     }
 
 }

@@ -3,7 +3,7 @@ Feature: Featured Products Functionality for nopcommerce E-commerce Website
 
 
   Background:
-    Given I am on the nopcommerce login page
+    Given I am on the NoPommerce Page
 
 
 

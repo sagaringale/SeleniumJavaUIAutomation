@@ -4,19 +4,20 @@ import io.cucumber.testng.CucumberOptions;
 import org.junit.runner.RunWith;
 import org.testng.annotations.DataProvider;
 
-@CucumberOptions(features = "src/test/resources/features",
-        glue = {"org.products.stepdefs"},
-        plugin = {"pretty", "html:target/cucumber-reports", "json:target/cucumber.json"},
+
+@CucumberOptions(features = "src/test/resources/features/featuredProducts.feature",
+        glue = {"org/products/stepdefs"},
+        plugin = {"pretty", "html:target/cucumber-reportsNew/FeatureProducts.html", "json:target/cucumber.json"},
+        dryRun = false,
         monochrome = true,
-        publish = true)
+        publish = false)
 
 
 
 public class TestRunner extends AbstractTestNGCucumberTests {
-    @Override
-    @DataProvider(parallel = true)
-    public Object[][] scenarios() {
-        return super.scenarios();
-    }
-
+//    @Override
+//    @DataProvider(parallel = true)
+//    public Object[][] scenarios() {
+//        return super.scenarios();
+//    }
 }

@@ -25,10 +25,11 @@ public class LoginPage {
 
     // Methods
 
-    public void loginpage(){
-        WebElement loginpage = driver.findElement(loginclick);
-        loginpage.click();
-    }
+//    public void loginpage(){
+//        WebElement loginpage = driver.findElement(loginclick);
+//        loginpage.click();
+//
+//    }
     public void enterEmail(String email) {
         WebElement emailInput = driver.findElement(emailInputLocator);
         emailInput.sendKeys(email);

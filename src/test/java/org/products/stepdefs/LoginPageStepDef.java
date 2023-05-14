@@ -10,6 +10,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.products.pages.FeaturedProductPage;
 import org.products.pages.LoginPage;
 import org.testng.Assert;
 
@@ -23,6 +25,7 @@ public class LoginPageStepDef{
     @Before
     public void setup(){
         driver = new ChromeDriver();
+        //driver = new  FirefoxDriver();
     }
 
     @After
@@ -35,29 +38,31 @@ public class LoginPageStepDef{
 
     @Given("I am on the nopcommerce login page")
     public void i_am_on_the_nopcommerce_login_page() {
-        driver.get("https://demo.nopcommerce.com/");
+
+        //driver.manage().timeouts().implicitlyWait(10000, TimeUnit.MILLISECONDS);
+        driver.get("https://demo.nopcommerce.com/login?returnUrl=%2F");
 
         //Maximise browser window
-        driver.manage().window().maximize();
+//        driver.manage().window().maximize();
 
         //Adding wait
-        driver.manage().timeouts().implicitlyWait(10000, TimeUnit.MILLISECONDS);
+       // driver.manage().timeouts().implicitlyWait(10000, TimeUnit.MILLISECONDS);
 
         loginPage = new LoginPage(driver);
-
 
 
     }
 
     @Given("I have entered a valid username and password")
     public void i_have_entered_a_valid_username_and_password() {
-        loginPage.loginpage();
-        loginPage.enterEmail("sss@gmail.com");
+       // loginPage.loginpage();
+        loginPage.enterEmail("ram@gmail.com");
         loginPage.enterPassword("Sagar@demo");
     }
 
     @Given("I have entered invalid {string} and {string}")
     public void i_have_entered_invalid_and(String username, String password) {
+
         loginPage.enterEmail(username);
         loginPage.enterPassword(password);
     }
@@ -82,6 +87,7 @@ public class LoginPageStepDef{
 
     @When("I click on the \"Forgotten Password\" link")
     public void i_click_on_the_forgotten_password() {
+
         loginPage.clickForgottenPasswordLink();
     }
 

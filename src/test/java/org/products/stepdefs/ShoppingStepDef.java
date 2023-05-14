@@ -10,6 +10,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+
+import org.products.pages.FeaturedProductPage;
 import org.products.pages.ShoppingPage;
 import org.testng.Assert;
 
@@ -30,14 +32,22 @@ public class ShoppingStepDef {
             driver.quit();
         }
     }
-    @Given("I am click on computer tab")
+    @Given("I am On The Nopommerce Main Page")
+    public void iAmOnTheNopommerceMainPage() {
+
+        driver.get("https://demo.nopcommerce.com/login?returnUrl=%2F");
+        shoppingpage = new ShoppingPage(driver);
+
+    }
+
+    @When("I am click on computer tab")
     public void iAmClickOnComputerTab() {
 
         shoppingpage.ComputerTab();
 
     }
 
-    @When("I am click on Desktop")
+    @And("I am click on Desktop")
     public void iAmClickOnDesktop() {
         shoppingpage.DesktopTab();
     }
@@ -49,7 +59,12 @@ public class ShoppingStepDef {
 
     @Then("I can see the product is selected")
     public void iCanSeeTheProductIsSelected() {
-        shoppingpage.ProductIsSelected();
+        //shoppingpage.ProductIsSelected();
+    }
+
+    @Then("I can see the product is selected {string}")
+    public void iCanSeeTheProductIsSelected(String productselect) {
+        shoppingpage.ProductIsSelected(productselect);
     }
 
     @And("I click on add to cart button")
@@ -111,4 +126,14 @@ public class ShoppingStepDef {
     public void iEnterTheCompanyName() {
         shoppingpage.EnterTheCompanyName();
     }
+
+
+    @Given("I have enter a valid user and pass")
+    public void iHaveEnterAValidUserAndPass() {
+        shoppingpage.enterEmail("ram@gmail.com");
+        shoppingpage.enterPassword("Sagar@demo");
+        shoppingpage.clickLoginButton();
+    }
+
+
 }

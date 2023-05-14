@@ -9,9 +9,12 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.products.pages.FeaturedProductPage;
+import org.products.pages.LoginPage;
 import org.testng.Assert;
 
+import java.util.concurrent.TimeUnit;
 
 
 public class FeaturedProductStepDef {
@@ -19,9 +22,12 @@ public class FeaturedProductStepDef {
     private WebDriver driver;
     private FeaturedProductPage featuredproductpage;
 
+
     @Before
     public void setup(){
         driver = new ChromeDriver();
+
+        //featuredproductpage = new FeaturedProductPage(driver);
     }
 
     @After
@@ -31,8 +37,15 @@ public class FeaturedProductStepDef {
         }
     }
 
+    @Given("I am on the NoPommerce Page")
+    public void iAmOnTheNoPommercePage() {
+        driver.get("https://demo.nopcommerce.com");
+
+        featuredproductpage = new FeaturedProductPage(driver);
+    }
+
     @Given("I am on a Featured product section details")
-    public void iAmOnAFeaturedProductSectionDetails() {
+    public void iAmOnAFeaturedProductSectionDetails() throws InterruptedException {
         featuredproductpage.sectionDetails();
 
     }
@@ -54,6 +67,7 @@ public class FeaturedProductStepDef {
         featuredproductpage.thirdProductItem(productthird);
 
     }
+
 
 
 }
